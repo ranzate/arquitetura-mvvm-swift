@@ -7,19 +7,37 @@
 //
 
 import UIKit
+import RxCocoa
+import RxDataSources
+import RxSwift
 
-class ViewController: UIViewController {
-
+class ViewController: BaseViewController {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    var postViewModel = PostViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        bindView()
+        postViewModel.getPosts()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-
+    
+    fileprivate func bindView() {
+        postViewModel.posts.asObservable().bind(to: tableView.rx.items(cellIdentifier: "postItemCell", cellType: PostTableViewCell.self)) { index, model, cell in
+            cell.post = model
+            }.disposed(by: disposeBag)
+        
+        tableView.rx.modelSelected(Post.self).asObservable().bind(onNext: modelSelected)
+        .disposed(by: disposeBag)
+    }
+    
+    fileprivate func modelSelected(post: Post) {
+        print(post.title)
+    }
 }
 
