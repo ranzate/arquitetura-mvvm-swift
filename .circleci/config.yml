@@ -4,7 +4,7 @@ OS CircleCI 2.0 configuration file
 #
 version: 2
 jobs:
-  build:
+  build-and-test:
 
     # Specify the Xcode version to use
     macos:
@@ -57,3 +57,9 @@ jobs:
       - store_artifacts:
           path: ~/Library/Logs/scan
           destination: scan-logs
+
+workflows:
+  version: 2
+  build-test-adhoc:
+    jobs:
+      - build-and-test
