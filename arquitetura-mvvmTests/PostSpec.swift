@@ -245,7 +245,7 @@ class PostSpec: QuickSpec {
                 let observer = scheduler.createObserver(Array<Post>.self)
                 
                 let observable = scheduler.createColdObservable([
-                    next(100, Mapper<Post>().mapArray(JSONArray: body))
+                    Recorded.next(100, Mapper<Post>().mapArray(JSONArray: body))
                     ])
                 
                 let service = MockPostRemoteService(response: observable)
@@ -266,8 +266,8 @@ class PostSpec: QuickSpec {
                 scheduler.start()
                 
                 let expectedEvents = [
-                    next(100, [Post]()),
-                    next(300, Mapper<Post>().mapArray(JSONArray: body))
+                    Recorded.next(100, [Post]()),
+                    Recorded.next(300, Mapper<Post>().mapArray(JSONArray: body))
                 ]
                 
                 expect(expectedEvents.count).to(equal(observer.events.count))
@@ -284,8 +284,8 @@ class PostSpec: QuickSpec {
                 let observer = scheduler.createObserver(String.self)
                 
                 let observable = scheduler.createColdObservable([
-                    next(100, [Post]()),
-                    error(100, Mapper<ResponseError>().map(JSON: errorBody)!)
+                    Recorded.next(100, [Post]()),
+                    Recorded.error(100, Mapper<ResponseError>().map(JSON: errorBody)!)
                     ])
                 
                 let service = MockPostRemoteService(response: observable)
@@ -306,8 +306,8 @@ class PostSpec: QuickSpec {
                 scheduler.start()
                 
                 let expectedEvents = [
-                    next(100, ""),
-                    next(300, "Error")
+                    Recorded.next(100, ""),
+                    Recorded.next(300, "Error")
                 ]
                 
                 expect(expectedEvents.count).to(equal(observer.events.count))
@@ -329,7 +329,7 @@ class PostSpec: QuickSpec {
                 let observer = scheduler.createObserver(Post?.self)
                 
                 let observable = scheduler.createColdObservable([
-                    next(100, Mapper<Post>().map(JSON: body))
+                    Recorded.next(100, Mapper<Post>().map(JSON: body))
                     ])
                 
                 let service = MockPostRemoteService(response: observable)
@@ -350,8 +350,8 @@ class PostSpec: QuickSpec {
                 scheduler.start()
                 
                 let expectedEvents = [
-                    next(100, Post()),
-                    next(300, Mapper<Post>().map(JSON: body))
+                    Recorded.next(100, Post()),
+                    Recorded.next(300, Mapper<Post>().map(JSON: body))
                     ] as [Any]
                 
                 expect(expectedEvents.count).to(equal(observer.events.count))
@@ -368,8 +368,8 @@ class PostSpec: QuickSpec {
                 let observer = scheduler.createObserver(String.self)
                 
                 let observable = scheduler.createColdObservable([
-                    next(100, Mapper<Post>().map(JSON: body)),
-                    error(100, Mapper<ResponseError>().map(JSON: errorBody)!)
+                    Recorded.next(100, Mapper<Post>().map(JSON: body)),
+                    Recorded.error(100, Mapper<ResponseError>().map(JSON: errorBody)!)
                     ])
                 
                 let service = MockPostRemoteService(response: observable)
@@ -390,8 +390,8 @@ class PostSpec: QuickSpec {
                 scheduler.start()
                 
                 let expectedEvents = [
-                    next(100, ""),
-                    next(300, "Error")
+                    Recorded.next(100, ""),
+                    Recorded.next(300, "Error")
                 ]
                 
                 expect(expectedEvents.count).to(equal(observer.events.count))
