@@ -20,24 +20,13 @@ class ViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindView()
-        postViewModel.getPosts()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+//        postViewModel.getPosts()
     }
     
     fileprivate func bindView() {
         postViewModel.posts.asObservable().bind(to: tableView.rx.items(cellIdentifier: "postItemCell", cellType: PostTableViewCell.self)) { index, model, cell in
             cell.post = model
             }.disposed(by: disposeBag)
-        
-        tableView.rx.modelSelected(Post.self).asObservable().bind(onNext: modelSelected)
-        .disposed(by: disposeBag)
-    }
-    
-    fileprivate func modelSelected(post: Post) {
-        print(post.title)
     }
 }
 

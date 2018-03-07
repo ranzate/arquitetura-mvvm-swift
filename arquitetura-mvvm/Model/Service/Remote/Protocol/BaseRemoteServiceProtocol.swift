@@ -7,3 +7,12 @@
 //
 
 import Foundation
+import Alamofire
+import RxSwift
+import ObjectMapper
+
+protocol BaseRemoteServiceProtocol {
+    func request<T: BaseMappable>(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding, headers: HTTPHeaders?) -> Observable<T?>
+    
+    func request<T: BaseMappable>(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding, headers: HTTPHeaders?) -> Observable<[T]>
+}

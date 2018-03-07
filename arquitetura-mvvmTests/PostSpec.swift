@@ -15,16 +15,11 @@ import RxTest
 import ObjectMapper
 @testable import arquitetura_mvvm
 
-class TestSpec: QuickSpec {
+class PostSpec: QuickSpec {
     
     var viewModel: PostViewModel!
     var service: PostRemoteService!
     var disposeBag: DisposeBag!
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
     
     override func spec() {
         
@@ -33,7 +28,27 @@ class TestSpec: QuickSpec {
             self.service = PostRemoteService()
         }
         
-        describe("Get Failure") {
+        describe("Get Post Failure") {
+            
+            beforeEach {
+                let body = [
+                    "message": "Error",
+                    "statusCode": 400
+                    ] as [String : Any]
+                
+                self.stub(uri("/posts/1"), json(body, status: 400))
+            }
+            it("Request", closure: {
+                waitUntil(timeout: 10, action: { (done) in
+                    self.service.getPost(1).subscribe(onError: { (error) in
+                        expect(error.getMessage()).to(equal("Error"))
+                        done()
+                    }).disposed(by: self.disposeBag)
+                })
+            })
+        }
+        
+        describe("Get Posts Failure") {
             
             beforeEach {
                 let body = [
@@ -53,7 +68,24 @@ class TestSpec: QuickSpec {
             })
         }
         
-        describe("Get Failure Without Message") {
+        describe("Get Post Failure Without Message") {
+            
+            beforeEach {
+                let body = [:] as [String : Any]
+                
+                self.stub(uri("/posts/1"), json(body, status: 400))
+            }
+            it("Request", closure: {
+                waitUntil(timeout: 10, action: { (done) in
+                    self.service.getPost(1).subscribe(onError: { (error) in
+                        expect(error.getMessage()).to(equal(""))
+                        done()
+                    }).disposed(by: self.disposeBag)
+                })
+            })
+        }
+        
+        describe("Get Posts Failure Without Message") {
             
             beforeEach {
                 let body = [:] as [String : Any]
@@ -70,7 +102,30 @@ class TestSpec: QuickSpec {
             })
         }
         
-        describe("Get Success Without Content") {
+        describe("Get Post Success Without Content") {
+            
+            beforeEach {
+                let body = [[
+                    "id": 1,
+                    "userId": "23",
+                    "title": "Teste",
+                    "body": "Kyle"
+                    ] as [String : Any]]
+                
+                self.stub(http(.get, uri: "/posts/1"), json(body))
+            }
+            
+            it("Request", closure: {
+                waitUntil(timeout: 10, action: { (done) in
+                    self.service.getPost(1).subscribe(onNext: { (post) in
+                        expect(post).to(beNil())
+                        done()
+                    }).disposed(by: self.disposeBag)
+                })
+            })
+        }
+        
+        describe("Get Posts Success Without Content") {
             
             beforeEach {
                 let body = [
@@ -83,7 +138,7 @@ class TestSpec: QuickSpec {
                 self.stub(http(.get, uri: "/posts"), json(body))
             }
             
-            it("Chamando", closure: {
+            it("Request", closure: {
                 waitUntil(timeout: 10, action: { (done) in
                     self.service.getPosts().subscribe(onNext: { (posts) in
                         expect(posts.count).to(equal(0))
@@ -93,7 +148,30 @@ class TestSpec: QuickSpec {
             })
         }
         
-        describe("Get Success") {
+        describe("Get Post Success") {
+            
+            beforeEach {
+                let body = [
+                    "id": 1,
+                    "userId": "23",
+                    "title": "Teste",
+                    "body": "Kyle"
+                    ] as [String : Any]
+                
+                self.stub(http(.get, uri: "/posts/1"), json(body))
+            }
+            
+            it("Request", closure: {
+                waitUntil(timeout: 10, action: { (done) in
+                    self.service.getPost(1).subscribe(onNext: { (post) in
+                        expect(post?.title).to(equal("Teste"))
+                        done()
+                    }).disposed(by: self.disposeBag)
+                })
+            })
+        }
+        
+        describe("Get Posts Success") {
             
             beforeEach {
                 let body = [[
@@ -106,7 +184,7 @@ class TestSpec: QuickSpec {
                 self.stub(http(.get, uri: "/posts"), json(body))
             }
             
-            it("Chamando", closure: {
+            it("Request", closure: {
                 waitUntil(timeout: 10, action: { (done) in
                     self.service.getPosts().subscribe(onNext: { (posts) in
                         expect(posts.first?.title).to(equal("Teste"))
@@ -116,7 +194,25 @@ class TestSpec: QuickSpec {
             })
         }
         
-        describe("Get No Content") {
+        describe("Get Post No Content") {
+            
+            beforeEach {
+                let body = [[:] as [String : Any]]
+                
+                self.stub(http(.get, uri: "/posts/1"), json(body, status: 204))
+            }
+            
+            it("Request", closure: {
+                waitUntil(timeout: 10, action: { (done) in
+                    self.service.getPost(1).subscribe(onNext: { (post) in
+                        expect(post).to(beNil())
+                        done()
+                    }).disposed(by: self.disposeBag)
+                })
+            })
+        }
+        
+        describe("Get Posts No Content") {
             
             beforeEach {
                 let body = [[:] as [String : Any]]
@@ -124,7 +220,7 @@ class TestSpec: QuickSpec {
                 self.stub(http(.get, uri: "/posts"), json(body, status: 204))
             }
             
-            it("Chamando", closure: {
+            it("Request", closure: {
                 waitUntil(timeout: 10, action: { (done) in
                     self.service.getPosts().subscribe(onNext: { (posts) in
                         expect(posts.count).to(equal(0))
@@ -134,7 +230,7 @@ class TestSpec: QuickSpec {
             })
         }
         
-        describe("Obtendo Posts") {
+        describe("Call Method getPosts") {
             
             let body = [[
                 "id": 1,
@@ -143,7 +239,7 @@ class TestSpec: QuickSpec {
                 "body": "Kyle"
                 ] as [String : Any]]
             
-            it("Chamando requisição", closure: {
+            it("Call Method Return Success", closure: {
                 let scheduler = TestScheduler(initialClock: 0)
                 
                 let observer = scheduler.createObserver(Array<Post>.self)
@@ -182,7 +278,7 @@ class TestSpec: QuickSpec {
                 "message": "Error",
                 ] as [String : Any]
             
-            it("Chamando requisição com error", closure: {
+            it("Call Method Return Error", closure: {
                 let scheduler = TestScheduler(initialClock: 0)
                 
                 let observer = scheduler.createObserver(String.self)
@@ -205,6 +301,90 @@ class TestSpec: QuickSpec {
                 
                 scheduler.scheduleAt(200) {
                     self.viewModel.getPosts()
+                }
+                
+                scheduler.start()
+                
+                let expectedEvents = [
+                    next(100, ""),
+                    next(300, "Error")
+                ]
+                
+                expect(expectedEvents.count).to(equal(observer.events.count))
+            })
+        }
+        
+        describe("Call Method getPost") {
+            
+            let body = [
+                "id": 1,
+                "userId": "23",
+                "title": "Teste",
+                "body": "Kyle"
+                ] as [String : Any]
+            
+            it("Call Method Return Success", closure: {
+                let scheduler = TestScheduler(initialClock: 0)
+                
+                let observer = scheduler.createObserver(Post?.self)
+                
+                let observable = scheduler.createColdObservable([
+                    next(100, Mapper<Post>().map(JSON: body))
+                    ])
+                
+                let service = MockPostRemoteService(response: observable)
+                
+                self.viewModel = PostViewModel(service: service)
+                
+                scheduler.scheduleAt(100) {
+                    self.viewModel.post.asObservable()
+                        .subscribe(observer)
+                        .disposed(by: self.disposeBag)
+                }
+                
+                
+                scheduler.scheduleAt(200) {
+                    self.viewModel.getPost(1)
+                }
+                
+                scheduler.start()
+                
+                let expectedEvents = [
+                    next(100, Post()),
+                    next(300, Mapper<Post>().map(JSON: body))
+                    ] as [Any]
+                
+                expect(expectedEvents.count).to(equal(observer.events.count))
+            })
+            
+            let errorBody = [
+                "status": 400,
+                "message": "Error",
+                ] as [String : Any]
+            
+            it("Call Method Return Error", closure: {
+                let scheduler = TestScheduler(initialClock: 0)
+                
+                let observer = scheduler.createObserver(String.self)
+                
+                let observable = scheduler.createColdObservable([
+                    next(100, Mapper<Post>().map(JSON: body)),
+                    error(100, Mapper<ResponseError>().map(JSON: errorBody)!)
+                    ])
+                
+                let service = MockPostRemoteService(response: observable)
+                
+                self.viewModel = PostViewModel(service: service)
+                
+                scheduler.scheduleAt(100) {
+                    self.viewModel.error.asObservable()
+                        .subscribe(observer)
+                        .disposed(by: self.disposeBag)
+                }
+                
+                
+                scheduler.scheduleAt(200) {
+                    self.viewModel.getPost(1)
                 }
                 
                 scheduler.start()

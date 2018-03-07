@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+extension Error {
+    func getMessage() -> String {
+        return (self as? ResponseError)?.message ?? ""
+    }
+}

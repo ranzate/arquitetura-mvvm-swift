@@ -7,3 +7,20 @@
 //
 
 import Foundation
+
+import ObjectMapper
+
+struct ResponseError {
+    var message: String?
+    var statusCode: Int?
+}
+
+extension ResponseError: Mappable, Error {
+    
+    init?(map: Map) {}
+    
+    mutating func mapping(map: Map) {
+        message <- map["message"]
+        statusCode <- map["status_code"]
+    }
+}

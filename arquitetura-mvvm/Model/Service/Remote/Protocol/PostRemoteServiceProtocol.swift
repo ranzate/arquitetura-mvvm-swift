@@ -7,3 +7,9 @@
 //
 
 import Foundation
+import RxSwift
+
+protocol PostRemoteServiceProtocol {
+    func getPosts() -> Observable<[Post]>
+    func getPost(_ id: Int) -> Observable<Post?>
+}

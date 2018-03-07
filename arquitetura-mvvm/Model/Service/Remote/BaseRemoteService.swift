@@ -9,19 +9,16 @@
 import Foundation
 import Alamofire
 import ObjectMapper
+import RxSwift
 
-class BaseRemoteService {
+
+
+class BaseRemoteService: BaseRemoteServiceProtocol {
     
-    static let encoding = JSONEncoding.default
     
-    //    static let privateAdapter : PrivateAdapter = {
-    //        let instance = PrivateAdapter(
-    //            baseURLString: baseUri
-    //        )
-    //        return instance
-    //    }()
+    let encoding = JSONEncoding.default
     
-    static let sessionManager : SessionManager = {
+    private static let sessionManager : SessionManager = {
         let serverTrustPolicies: [String:ServerTrustPolicy] = [
             API.baseUrl: ServerTrustPolicy.pinCertificates(
                 certificates: ServerTrustPolicy.certificates(),
@@ -29,40 +26,70 @@ class BaseRemoteService {
                 validateHost: true
             )
         ]
+        
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 30 // seconds
         configuration.timeoutIntervalForResource = 30
         let instance = SessionManager(configuration: configuration, serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies))
         
-        //        instance.adapter = privateAdapter
-        //        instance.retrier = privateAdapter
         return instance
     }()
     
-    static func handlerResultObject<T: BaseMappable>(completion: (T?) -> (), error: () -> (), response: DataResponse<Any>) {
-        if(response.response != nil && response.response!.statusCode == HTTPCodes.noContent) {
-            completion(nil)
-        } else if(response.result.isSuccess) {
-            completion(Mapper<T>().map(JSONObject: response.result.value))
-        } else {
-            error()
-        }
+    func getSessionManager() -> SessionManager {
+        return BaseRemoteService.sessionManager
     }
     
-    static func handlerResultArray<T: BaseMappable>(completion: ([T]?) -> (), error: () -> (), response: DataResponse<Any>) {
-        if(response.response != nil && response.response!.statusCode == HTTPCodes.noContent) {
-            completion([T]())
-        } else if(response.result.isSuccess) {
-            completion(Mapper<T>().mapArray(JSONObject: response.result.value))
-        } else {
-            error()
-        }
+    func request<T>(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding, headers: HTTPHeaders? = nil) -> Observable<[T]> where T : BaseMappable {
+        return Observable.create({ (observer) -> Disposable in
+            self.getSessionManager().request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
+                .validate()
+                .responseJSON(completionHandler: {
+                    if $0.result.isSuccess {
+                        observer.on(.next(self.handlerResult(response: $0)))
+                        observer.on(.completed)
+                    } else {
+                        observer.on(.error(self.validateResponse(response: $0)))
+                    }
+                })
+            
+            return Disposables.create()
+        })
     }
     
-    static func validateResponse(response: DataResponse<Any>, requestSucess: Bool = false) -> String? {
-        if let statuscode =  response.response?.statusCode,  statuscode != HTTPCodes.created {
-            return ""
-        }
-        return nil
+    func request<T>(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding, headers: HTTPHeaders? = nil) -> Observable<T?> where T : BaseMappable {
+        return Observable.create({ (observer) -> Disposable in
+            self.getSessionManager().request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
+                .validate()
+                .responseJSON(completionHandler: {
+                    if $0.result.isSuccess {
+                        observer.on(.next(self.handlerResult(response: $0)))
+                        observer.on(.completed)
+                    } else {
+                        observer.on(.error(self.validateResponse(response: $0)))
+                    }
+                })
+            
+            return Disposables.create()
+        })
     }
+    
+    func handlerResult<T: BaseMappable>(response: DataResponse<Any>) -> Array<T> {
+        if(response.response != nil && response.response!.statusCode == HTTPCodes.noContent) {
+            return [T]()
+        }
+        return Mapper<T>().mapArray(JSONObject: response.result.value) ?? [T]()
+    }
+    
+    func handlerResult<T: BaseMappable>(response: DataResponse<Any>) -> T? {
+        if(response.response != nil && response.response!.statusCode == HTTPCodes.noContent) {
+            return nil
+        }
+        return Mapper<T>().map(JSONObject: response.result.value)
+    }
+    
+    func validateResponse(response: DataResponse<Any>) -> ResponseError {
+        let data = String(data: response.data ?? Data(), encoding: String.Encoding.utf8) ?? ""
+        return Mapper<ResponseError>().map(JSONString: data) ?? ResponseError()
+    }
+    
 }

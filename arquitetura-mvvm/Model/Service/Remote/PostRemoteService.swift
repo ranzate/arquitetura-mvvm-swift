@@ -7,13 +7,17 @@
 //
 
 import Foundation
+import RxAlamofire
+import RxSwift
+import ObjectMapper
 
-class PostRemoteService: BaseRemoteService {
-    static func getPosts(completion: @escaping ([Post]?) -> (), error: @escaping () -> ()) {
-        sessionManager.request(Endpoints.Posts.list.url, method: .get, parameters: nil, encoding: encoding)
-            .validate()
-            .responseJSON(completionHandler: {
-                handlerResultArray(completion: completion, error: error, response: $0)
-            })
+class PostRemoteService: BaseRemoteService, PostRemoteServiceProtocol {
+    
+    func getPosts() -> Observable<[Post]> {
+        return request(Endpoints.Posts.list.url, method: .get, parameters: nil, encoding: encoding)
+    }
+    
+    func getPost(_ id: Int) -> Observable<Post?> {
+        return request(Endpoints.Posts.get(id).url, method: .get, parameters: nil, encoding: encoding)
     }
 }

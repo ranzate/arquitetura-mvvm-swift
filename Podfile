@@ -8,7 +8,7 @@ target 'arquitetura-mvvm' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Alamofire'
-#  pod 'RxAlamofire'
+  pod 'RxAlamofire'
   pod 'AlamofireObjectMapper'
   # Pods for Sabesp Rede
 
@@ -16,6 +16,12 @@ target 'arquitetura-mvvm' do
 
   target 'arquitetura-mvvmTests' do
     inherit! :search_paths
+    pod 'Mockingjay'
+    pod 'RxBlocking', '~> 4.0'
+    pod 'RxTest', '~> 4.0'
+    
+    pod 'Quick'
+    pod 'Nimble'
     # Pods for testing
   end
   
