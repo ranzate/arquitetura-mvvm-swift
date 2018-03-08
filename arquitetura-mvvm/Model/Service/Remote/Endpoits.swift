@@ -9,7 +9,7 @@
 import Foundation
 
 enum HTTPCodes: Int {
-    
+
     case noCode = 0
     case badRequest = 500
     case ok = 200
@@ -18,7 +18,7 @@ enum HTTPCodes: Int {
     case notFound = 404
 }
 
-func ==(lhs: Int, rhs: HTTPCodes) -> Bool {
+func == (lhs: Int, rhs: HTTPCodes) -> Bool {
     return lhs == rhs.rawValue
 }
 
@@ -32,18 +32,18 @@ protocol Endpoint {
 }
 
 enum Endpoints {
-    
+
     enum Posts: Endpoint {
         case list
         case get(Int)
-        
+
         public var path: String {
             switch self {
             case .list: return "/posts"
             case .get(let id): return "/posts/\(id)"
             }
         }
-        
+
         public var url: String {
             return "\(API.baseUrl)\(path)"
         }

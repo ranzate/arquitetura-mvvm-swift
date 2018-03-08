@@ -10,18 +10,18 @@ import Foundation
 import RxSwift
 
 struct PostViewModel {
-    
+
     private var service: PostRemoteServiceProtocol!
-    
+
     var posts = Variable<[Post]>([Post]())
     var post = Variable<Post?>(Post())
     var error = Variable<String>("")
     var disposeBag = DisposeBag()
-    
+
     init(service: PostRemoteServiceProtocol = PostRemoteService()) {
         self.service = service
     }
-    
+
     func getPosts() {
         service.getPosts()
             .subscribe(onNext: { (posts) in
@@ -30,7 +30,7 @@ struct PostViewModel {
                 self.error.value = error.getMessage()
             }).disposed(by: disposeBag)
     }
-    
+
     func getPost(_ id: Int) {
         service.getPost(id)
             .subscribe(onNext: { (post) in

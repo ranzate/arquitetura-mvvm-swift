@@ -1,0 +1,6 @@
+coverage_service: cobertura_xml
+xcodeproj: arquitetura-mvvm.xcodeproj
+workspace: arquitetura-mvvm.xcworkspace
+scheme: arquitetura-mvvm
+source_directory: .
+output_directory: sonar-reports

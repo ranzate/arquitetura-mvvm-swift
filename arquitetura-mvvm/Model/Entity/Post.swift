@@ -17,14 +17,14 @@ struct Post {
 }
 
 extension Post: Mappable {
-    
+
     init?(map: Map) {}
-    
+
     mutating func mapping(map: Map) {
         userId <- map["userId"]
         id <- map["id"]
         title <- map["title"]
         body <- map["body"]
     }
-    
+
 }

@@ -12,25 +12,25 @@ import RxSwift
 import RxTest
 
 class MockPostRemoteService: PostRemoteServiceProtocol {
-    
+
     var viewModel: PostViewModel!
     var disposeBag: DisposeBag!
-    
+
     var responseArray: TestableObservable<[Post]>!
     var response: TestableObservable<Post?>!
-    
+
     init(response: TestableObservable<[Post]>) {
         self.responseArray = response
     }
-    
+
     init(response: TestableObservable<Post?>) {
         self.response = response
     }
-    
+
     func getPosts() -> Observable<[Post]> {
         return responseArray.asObservable()
     }
-    
+
     func getPost(_ id: Int) -> Observable<Post?> {
         return response.asObservable()
     }

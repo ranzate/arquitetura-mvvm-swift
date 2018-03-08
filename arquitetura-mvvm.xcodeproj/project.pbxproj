@@ -181,9 +181,9 @@
 		506003A51FFFA17000B54AED /* arquitetura-mvvmTests */ = {
 			isa = PBXGroup;
 			children = (
+				50D8B13B2051616A00F64B0B /* Service */,
 				506003A61FFFA17000B54AED /* arquitetura_mvvmTests.swift */,
 				506003A81FFFA17000B54AED /* Info.plist */,
-				500A2BCE204EB05C0073ED70 /* MockPostRemoteService.swift */,
 				500A2BD2204EC9C50073ED70 /* PostSpec.swift */,
 			);
 			path = "arquitetura-mvvmTests";
@@ -317,6 +317,22 @@
 			path = "arquitetura-mvvmUITests";
 			sourceTree = "<group>";
 		};
+		50D8B13B2051616A00F64B0B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				50D8B13C2051617600F64B0B /* Remote */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		50D8B13C2051617600F64B0B /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				500A2BCE204EB05C0073ED70 /* MockPostRemoteService.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
 		7914C1CCFDA93CB77074CFBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +356,7 @@
 				5060038C1FFFA17000B54AED /* Resources */,
 				4DB7E53638822050AF2098FF /* [CP] Embed Pods Frameworks */,
 				76526B8A37C3AA64E4B6644A /* [CP] Copy Pods Resources */,
+				50D8B13A205154CD00F64B0B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -530,6 +547,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-arquitetura-mvvm/Pods-arquitetura-mvvm-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		50D8B13A205154CD00F64B0B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		5319224DE5D61B6E40C3BB1E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

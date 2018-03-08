@@ -9,9 +9,9 @@
 import UIKit
 
 class PostTableViewCell: UITableViewCell {
-    
+
     @IBOutlet weak var title: UILabel!
-    
+
     var post: Post! {
         didSet {
             title.text = post.title

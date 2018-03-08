@@ -12,21 +12,20 @@ import RxDataSources
 import RxSwift
 
 class ViewController: BaseViewController {
-    
+
     @IBOutlet weak var tableView: UITableView!
-    
+
     var postViewModel = PostViewModel()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         bindView()
-//        postViewModel.getPosts()
+        postViewModel.getPosts()
     }
-    
+
     fileprivate func bindView() {
-        postViewModel.posts.asObservable().bind(to: tableView.rx.items(cellIdentifier: "postItemCell", cellType: PostTableViewCell.self)) { index, model, cell in
+        postViewModel.posts.asObservable().bind(to: tableView.rx.items(cellIdentifier: "postItemCell", cellType: PostTableViewCell.self)) { _, model, cell in
             cell.post = model
             }.disposed(by: disposeBag)
     }
 }
-
