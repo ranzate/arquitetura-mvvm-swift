@@ -19,6 +19,7 @@ class ViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.accessibilityIdentifier = "Cell"
         bindView()
         postViewModel.getPosts()
     }
