@@ -6,4 +6,11 @@
 //  Copyright © 2018 Solutis. All rights reserved.
 //
 
-import Foundation
+import RxCocoa
+import RxSwift
+
+class BaseViewModel {
+    var loading = BehaviorRelay<Bool>(value: false)
+    var error = BehaviorRelay<String>(value: "")
+    var disposeBag = DisposeBag()
+}

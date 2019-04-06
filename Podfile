@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '12.0'
 
 target 'arquitetura-mvvm' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -8,8 +8,6 @@ target 'arquitetura-mvvm' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Alamofire'
-  pod 'RxAlamofire'
-  pod 'AlamofireObjectMapper'
   # Pods for Sabesp Rede
 
   # Pods for arquitetura-mvvm
@@ -18,10 +16,9 @@ target 'arquitetura-mvvm' do
     inherit! :search_paths
     pod 'Mockingjay'
     pod 'RxBlocking', '~> 4.0'
-    pod 'RxTest', '~> 4.0'
-    
-    pod 'Quick'
-    pod 'Nimble'
+    pod 'RxBlocking'
+    pod 'RxSwift'
+    pod 'RxCocoa'
     # Pods for testing
   end
   

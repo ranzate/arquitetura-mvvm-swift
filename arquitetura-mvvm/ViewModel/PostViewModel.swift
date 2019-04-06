@@ -6,37 +6,32 @@
 //  Copyright © 2018 Solutis. All rights reserved.
 //
 
-import Foundation
-import RxSwift
+import RxCocoa
 
-struct PostViewModel {
+class PostViewModel : BaseViewModel {
 
-    private var service: PostRemoteServiceProtocol!
+    private var service = PostRemoteService()
 
-    var posts = Variable<[Post]>([Post]())
-    var post = Variable<Post?>(Post())
-    var error = Variable<String>("")
-    var disposeBag = DisposeBag()
-
-    init(service: PostRemoteServiceProtocol = PostRemoteService()) {
-        self.service = service
-    }
+    var posts = BehaviorRelay<[Post]>(value: [Post]())
+    var post = BehaviorRelay<Post?>(value: nil)
 
     func getPosts() {
         service.getPosts()
             .subscribe(onNext: { (posts) in
-                self.posts.value = posts
+                self.posts.accept(posts)
             }, onError: { (error) in
-                self.error.value = error.getMessage()
+                self.error.accept(error.getMessage())
             }).disposed(by: disposeBag)
     }
+    
+    func getPostIdSelected(_ index: Int) -> Int {
+        return posts.value[index].id
+    }
 
-    func getPost(_ id: Int) {
-        service.getPost(id)
-            .subscribe(onNext: { (post) in
-                self.post.value = post
-            }, onError: { (error) in
-                self.error.value = error.getMessage()
-            }).disposed(by: disposeBag)
+    func getViewModelCell(_ index: Int) -> PostTableViewCellViewModel {
+        if posts.value.count > index {
+            return PostTableViewCellViewModel(posts.value[index])
+        }
+        return PostTableViewCellViewModel(nil)
     }
 }

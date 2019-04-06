@@ -8,19 +8,15 @@
 
 import Foundation
 
-import ObjectMapper
-
-struct ResponseError {
+class ResponseError: Codable, Error {
     var message: String?
     var statusCode: Int?
-}
-
-extension ResponseError: Mappable, Error {
-
-    init?(map: Map) {}
-
-    mutating func mapping(map: Map) {
-        message <- map["message"]
-        statusCode <- map["status_code"]
+    
+    init() {
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case message
+        case statusCode
     }
 }

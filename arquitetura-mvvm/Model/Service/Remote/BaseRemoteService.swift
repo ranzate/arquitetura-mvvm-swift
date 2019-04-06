@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import ObjectMapper
 import RxSwift
 
 class BaseRemoteService: BaseRemoteServiceProtocol {
@@ -35,8 +34,8 @@ class BaseRemoteService: BaseRemoteServiceProtocol {
     func getSessionManager() -> SessionManager {
         return BaseRemoteService.sessionManager
     }
-
-    func request<T>(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding, headers: HTTPHeaders? = nil) -> Observable<[T]> where T : BaseMappable {
+    
+    func request<T>(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding, headers: HTTPHeaders? = nil) -> Observable<[T]> where T : Decodable {
         return Observable.create({ (observer) -> Disposable in
             self.getSessionManager().request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
                 .validate()
@@ -52,8 +51,8 @@ class BaseRemoteService: BaseRemoteServiceProtocol {
             return Disposables.create()
         })
     }
-
-    func request<T>(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding, headers: HTTPHeaders? = nil) -> Observable<T?> where T : BaseMappable {
+    
+    func request<T>(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding, headers: HTTPHeaders? = nil) -> Observable<T?> where T : Decodable {
         return Observable.create({ (observer) -> Disposable in
             self.getSessionManager().request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
                 .validate()
@@ -69,24 +68,43 @@ class BaseRemoteService: BaseRemoteServiceProtocol {
             return Disposables.create()
         })
     }
-
-    func handlerResult<T: BaseMappable>(response: DataResponse<Any>) -> [T] {
+    
+    func handlerResult<T: Decodable>(response: DataResponse<Any>) -> [T] {
         if(response.response != nil && response.response!.statusCode == HTTPCodes.noContent) {
             return [T]()
         }
-        return Mapper<T>().mapArray(JSONObject: response.result.value) ?? [T]()
+        
+        guard let data = response.data else { return [T]() }
+        
+        do {
+            return try JSONDecoder().decode([T].self, from: data)
+        } catch {
+            return [T]()
+        }
     }
-
-    func handlerResult<T: BaseMappable>(response: DataResponse<Any>) -> T? {
+    
+    func handlerResult<T: Decodable>(response: DataResponse<Any>) -> T? {
         if(response.response != nil && response.response!.statusCode == HTTPCodes.noContent) {
             return nil
         }
-        return Mapper<T>().map(JSONObject: response.result.value)
+        
+        guard let data = response.data else { return nil }
+        
+        do {
+            return try JSONDecoder().decode(T.self, from: data)
+        } catch {
+            return nil
+        }
     }
 
     func validateResponse(response: DataResponse<Any>) -> ResponseError {
-        let data = String(data: response.data ?? Data(), encoding: String.Encoding.utf8) ?? ""
-        return Mapper<ResponseError>().map(JSONString: data) ?? ResponseError()
+        guard let data = response.data else { return ResponseError() }
+        
+        do {
+            return try JSONDecoder().decode(ResponseError.self, from: data)
+        } catch {
+            return ResponseError()
+        }
     }
 
 }

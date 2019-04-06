@@ -7,14 +7,8 @@
 //
 
 import XCTest
-import Mockingjay
-import RxTest
-import RxBlocking
-import RxSwift
-@testable import arquitetura_mvvm
-import ObjectMapper
 
-class arquitetura_mvvmTests: XCTestCase {
+class arquitetura_mvvmTests: XCTest {
 
     override func setUp() {
         super.setUp()

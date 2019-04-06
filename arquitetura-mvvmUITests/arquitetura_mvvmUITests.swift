@@ -11,14 +11,6 @@ import KIF
 
 class arquitetura_mvvmUITests: KIFTestCase {
 
-    // Exemplo de como criar um teste para uma tela de Login.
-//    func testMain() {
-//          tester().waitForView(withAccessibilityLabel: "mainView")
-////        tester().enterText("leandro.silva@solutis.com.br", intoViewWithAccessibilityLabel: "usuarioField")
-////        tester().enterText("1234", intoViewWithAccessibilityLabel: "senhaField")
-////        tester().tapView(withAccessibilityLabel: "loginBotao", traits: UIAccessibilityTraitButton)
-//        
-//        
-//    }
+
 
 }

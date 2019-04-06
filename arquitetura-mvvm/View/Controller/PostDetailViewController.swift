@@ -8,28 +8,28 @@
 
 import UIKit
 
-class PostDetailViewController: UIViewController {
+class PostDetailViewController: BaseViewController {
 
+    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var userIdLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var bodyLabel: UILabel!
+    
+    var viewModel: PostDetailViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        viewModel.getPost()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func bindView() {
+        viewModel.postModel.bind {[idLabel, userIdLabel, titleLabel, bodyLabel] (post) in
+            guard let post = post else { return }
+            idLabel?.text = post.id.description
+            userIdLabel?.text = post.userId.description
+            titleLabel?.text = post.title
+            bodyLabel?.text = post.body
+        }.disposed(by: disposeBag)
     }
-    */
 
 }

@@ -7,15 +7,25 @@
 //
 
 import UIKit
+import RxSwift
 
 class PostTableViewCell: UITableViewCell {
 
+    var disposeBag = DisposeBag()
+
     @IBOutlet weak var title: UILabel!
 
-    var post: Post! {
-        didSet {
-            title.text = post.title
-        }
+    var viewModel: PostTableViewCellViewModel!
+
+    func setup(_ viewModel: PostTableViewCellViewModel) {
+        self.viewModel = viewModel
+        bindView()
+    }
+
+    fileprivate func bindView() {
+        viewModel.post.asObservable().bind(onNext: { [title] in
+            title?.text = $0.title
+        }).disposed(by: disposeBag)
     }
 
 }

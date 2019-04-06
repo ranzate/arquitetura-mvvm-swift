@@ -7,11 +7,9 @@
 //
 
 import Foundation
-import RxAlamofire
 import RxSwift
-import ObjectMapper
 
-class PostRemoteService: BaseRemoteService, PostRemoteServiceProtocol {
+class PostRemoteService: BaseRemoteService {
 
     func getPosts() -> Observable<[Post]> {
         return request(Endpoints.Posts.list.url, method: .get, parameters: nil, encoding: encoding)
