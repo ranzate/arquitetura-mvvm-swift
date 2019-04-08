@@ -15,7 +15,7 @@ Essa camadas é dividade entre as classes Entity e Service.
 
 As classes Entity são a representação das informações obtidas atraves de serviços externos (API's) e serviços locais (Banco de dados). Abaixo segue um exemplo de uma implementação de uma classe Entity:
 
-```
+```swift
 class Post: Codable {
     var userId: Int!
     var id: Int!
@@ -46,7 +46,7 @@ class Post: Codable {
 
 As classes services são dividas entre Remotas e Locais. As classes remotas tem como o objetivo se comunicar com provedores externos do aplicativo (ex: API). Já as classes locais são responsáveis por fazer a comunicação com provedores internos do aplicativo (ex: Banco de dados). Abaixo segue um exemplo de classe remota:
 
-```
+```swift
 class PostRemoteService: BaseRemoteService {
 
     func getPosts() -> Observable<[Post]> {
@@ -63,7 +63,7 @@ class PostRemoteService: BaseRemoteService {
 
 A camada ViewModel tem o papel de notificar para camada View todas vez que uma Model é atualizada. Ela também é responsável por qualquer tratamento de dados necessário para apresentação na View. Segue abaixo um exemplo de implementação de uma classe View Model:
 
-```
+```swift
 class PostViewModel : BaseViewModel {
 
     private var service = PostRemoteService()
