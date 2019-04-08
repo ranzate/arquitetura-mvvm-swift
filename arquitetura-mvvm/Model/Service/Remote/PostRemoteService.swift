@@ -9,13 +9,13 @@
 import Foundation
 import RxSwift
 
-class PostRemoteService: BaseRemoteService {
+    class PostRemoteService: BaseRemoteService {
 
-    func getPosts() -> Observable<[Post]> {
-        return request(Endpoints.Posts.list.url, method: .get, parameters: nil, encoding: encoding)
-    }
+        func getPosts() -> Observable<[Post]> {
+            return request(Endpoints.Posts.list.url, method: .get, parameters: nil, encoding: encoding)
+        }
 
-    func getPost(_ id: Int) -> Observable<Post?> {
-        return request(Endpoints.Posts.get(id).url, method: .get, parameters: nil, encoding: encoding)
+        func getPost(_ id: Int) -> Observable<Post?> {
+            return request(Endpoints.Posts.get(id).url, method: .get, parameters: nil, encoding: encoding)
+        }
     }
-}
