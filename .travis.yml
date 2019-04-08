@@ -1,5 +1,4 @@
 language: swift # or objective-c
 osx_image: xcode10.2
 script:
-  - xcodebuild -scheme arquitetura-mvvm -workspace arquitetura-mvvm.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6S,OS=12.1' -enableCodeCoverage YES build test
-  - bash <(curl -s https://codecov.io/bash) -cF ios
+  - xcodebuild -scheme arquitetura-mvvm -workspace arquitetura-mvvm.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 5s,OS=12.1' -enableCodeCoverage YES build
