@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="abc-NN-K6r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="abc-NN-K6r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g19-5k-YgK">
-                                                    <rect key="frame" x="8" y="11" width="344" height="21"/>
+                                                    <rect key="frame" x="8" y="8" width="359" height="27.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -38,8 +38,9 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="g19-5k-YgK" firstAttribute="leading" secondItem="EmX-kg-g4o" secondAttribute="leading" constant="8" id="907-jT-C3i"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="g19-5k-YgK" secondAttribute="trailing" constant="8" id="iJL-4H-sPg"/>
-                                                <constraint firstItem="g19-5k-YgK" firstAttribute="centerY" secondItem="EmX-kg-g4o" secondAttribute="centerY" id="oaW-oT-0j7"/>
+                                                <constraint firstItem="g19-5k-YgK" firstAttribute="top" secondItem="EmX-kg-g4o" secondAttribute="top" constant="8" id="D89-Vb-XDo"/>
+                                                <constraint firstAttribute="bottom" secondItem="g19-5k-YgK" secondAttribute="bottom" constant="8" id="GQK-oj-6LJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="g19-5k-YgK" secondAttribute="trailing" constant="8" id="kUM-rO-iap"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <accessibility key="accessibilityConfiguration" label="Cell">
@@ -50,6 +51,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="0wi-4H-7lK"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Xm3-j3-7aF"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -4,18 +4,15 @@ platform :ios, '12.0'
 target 'arquitetura-mvvm' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  pod 'RxDataSources'
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Alamofire'
-  # Pods for Sabesp Rede
 
   # Pods for arquitetura-mvvm
 
   target 'arquitetura-mvvmTests' do
     inherit! :search_paths
     pod 'Mockingjay'
-    pod 'RxBlocking', '~> 4.0'
     pod 'RxBlocking'
     pod 'RxSwift'
     pod 'RxCocoa'
