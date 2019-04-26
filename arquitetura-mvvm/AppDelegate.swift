@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         coordinator = MainCoordinator(navigationController: navigationController)
         
-        coordinator?.start()
+        coordinator?.start(animated: false)
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navigationController

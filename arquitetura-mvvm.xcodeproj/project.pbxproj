@@ -41,6 +41,10 @@
 		50DEADCC2258E6AD008AE829 /* postsError.json in Resources */ = {isa = PBXBuildFile; fileRef = 50DEADCB2258E6AD008AE829 /* postsError.json */; };
 		50DEADCE22591C20008AE829 /* PostViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DEADCD22591C20008AE829 /* PostViewModelTest.swift */; };
 		5A5FFF18D68CBCF3EB6E88B2 /* Pods_arquitetura_mvvm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F825570065CDFF8229EDD6D /* Pods_arquitetura_mvvm.framework */; };
+		6F9DBFF82273348F00AB79DF /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9DBFF52273348E00AB79DF /* Coordinator.swift */; };
+		6F9DBFF92273348F00AB79DF /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9DBFF62273348F00AB79DF /* MainCoordinator.swift */; };
+		6F9DBFFA2273348F00AB79DF /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9DBFF72273348F00AB79DF /* Storyboarded.swift */; };
+		6F9DBFFC2273386E00AB79DF /* PostDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9DBFFB2273386E00AB79DF /* PostDetailCoordinator.swift */; };
 		8285E7A849504DEC1FB5C789 /* Pods_arquitetura_mvvmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DD699510C7F7F5A0370F53A /* Pods_arquitetura_mvvmTests.framework */; };
 		E97180342713D78FBCA8AF8F /* Pods_arquitetura_mvvm_arquitetura_mvvmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32001A55D78C03944EDAE77A /* Pods_arquitetura_mvvm_arquitetura_mvvmUITests.framework */; };
 /* End PBXBuildFile section */
@@ -103,6 +107,10 @@
 		50DEADCD22591C20008AE829 /* PostViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModelTest.swift; sourceTree = "<group>"; };
 		5DD699510C7F7F5A0370F53A /* Pods_arquitetura_mvvmTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_arquitetura_mvvmTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F825570065CDFF8229EDD6D /* Pods_arquitetura_mvvm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_arquitetura_mvvm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F9DBFF52273348E00AB79DF /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coordinator.swift; path = "arquitetura-mvvm/Coordinator/Coordinator.swift"; sourceTree = SOURCE_ROOT; };
+		6F9DBFF62273348F00AB79DF /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCoordinator.swift; path = "arquitetura-mvvm/Coordinator/MainCoordinator.swift"; sourceTree = SOURCE_ROOT; };
+		6F9DBFF72273348F00AB79DF /* Storyboarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Storyboarded.swift; path = "arquitetura-mvvm/Coordinator/Storyboarded.swift"; sourceTree = SOURCE_ROOT; };
+		6F9DBFFB2273386E00AB79DF /* PostDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostDetailCoordinator.swift; path = ../../../../PostDetailCoordinator.swift; sourceTree = "<group>"; };
 		BEDE83171C385C0BBFC4A6A5 /* Pods-arquitetura-mvvmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arquitetura-mvvmTests.release.xcconfig"; path = "Target Support Files/Pods-arquitetura-mvvmTests/Pods-arquitetura-mvvmTests.release.xcconfig"; sourceTree = "<group>"; };
 		D0ED9EE9C274FFA90DA4BD79 /* Pods-arquitetura-mvvm-arquitetura-mvvmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arquitetura-mvvm-arquitetura-mvvmUITests.release.xcconfig"; path = "Target Support Files/Pods-arquitetura-mvvm-arquitetura-mvvmUITests/Pods-arquitetura-mvvm-arquitetura-mvvmUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D7216170248E246881AEEA11 /* Pods-arquitetura-mvvmTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arquitetura-mvvmTests.debug.xcconfig"; path = "Target Support Files/Pods-arquitetura-mvvmTests/Pods-arquitetura-mvvmTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -182,6 +190,7 @@
 			children = (
 				506003911FFFA17000B54AED /* AppDelegate.swift */,
 				506003D920000B3500B54AED /* Common */,
+				6F9DBFF42273346E00AB79DF /* Coordinator */,
 				506003C21FFFA61900B54AED /* Model */,
 				506003C01FFFA5FA00B54AED /* View */,
 				506003C11FFFA60B00B54AED /* ViewModel */,
@@ -369,6 +378,18 @@
 				BEDE83171C385C0BBFC4A6A5 /* Pods-arquitetura-mvvmTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		6F9DBFF42273346E00AB79DF /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				6F9DBFF52273348E00AB79DF /* Coordinator.swift */,
+				6F9DBFF62273348F00AB79DF /* MainCoordinator.swift */,
+				6F9DBFF72273348F00AB79DF /* Storyboarded.swift */,
+				6F9DBFFB2273386E00AB79DF /* PostDetailCoordinator.swift */,
+			);
+			name = Coordinator;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -701,15 +722,19 @@
 				508301C220B461CB00EB4365 /* BaseViewModel.swift in Sources */,
 				506003CA1FFFB57300B54AED /* Post.swift in Sources */,
 				500A2BD520501AA70073ED70 /* Error.swift in Sources */,
+				6F9DBFF92273348F00AB79DF /* MainCoordinator.swift in Sources */,
 				508301C420B47A2100EB4365 /* PostTableViewCellViewModel.swift in Sources */,
 				506003941FFFA17000B54AED /* ViewController.swift in Sources */,
 				5081A15C20B8BC2900627698 /* PostDetailViewModel.swift in Sources */,
+				6F9DBFF82273348F00AB79DF /* Coordinator.swift in Sources */,
 				506003D21FFFB98200B54AED /* BaseRemoteService.swift in Sources */,
 				506003D51FFFF2B800B54AED /* BaseViewController.swift in Sources */,
 				506003921FFFA17000B54AED /* AppDelegate.swift in Sources */,
 				500A2BCA2049FC040073ED70 /* ResponseError.swift in Sources */,
 				506003CC1FFFB60500B54AED /* PostRemoteService.swift in Sources */,
+				6F9DBFFA2273348F00AB79DF /* Storyboarded.swift in Sources */,
 				506003D81FFFF4A000B54AED /* PostTableViewCell.swift in Sources */,
+				6F9DBFFC2273386E00AB79DF /* PostDetailCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
