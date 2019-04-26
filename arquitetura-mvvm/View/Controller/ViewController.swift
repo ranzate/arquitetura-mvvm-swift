@@ -11,7 +11,7 @@ import RxCocoa
 import RxDataSources
 import RxSwift
 
-class ViewController: BaseViewController {
+class ViewController: BaseViewController, Storyboarded {
     
     @IBOutlet weak var tableView: UITableView!
     
