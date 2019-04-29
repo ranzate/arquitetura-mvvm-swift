@@ -48,7 +48,6 @@
 		6F9DBFF82273348F00AB79DF /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9DBFF52273348E00AB79DF /* Coordinator.swift */; };
 		6F9DBFF92273348F00AB79DF /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9DBFF62273348F00AB79DF /* MainCoordinator.swift */; };
 		6F9DBFFA2273348F00AB79DF /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9DBFF72273348F00AB79DF /* Storyboarded.swift */; };
-		6F9DBFFC2273386E00AB79DF /* PostDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9DBFFB2273386E00AB79DF /* PostDetailCoordinator.swift */; };
 		6FEF7F4422772DA4008370FF /* MainCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEF7F4322772DA4008370FF /* MainCoordinatorTest.swift */; };
 		8285E7A849504DEC1FB5C789 /* Pods_arquitetura_mvvmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DD699510C7F7F5A0370F53A /* Pods_arquitetura_mvvmTests.framework */; };
 		E97180342713D78FBCA8AF8F /* Pods_arquitetura_mvvm_arquitetura_mvvmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32001A55D78C03944EDAE77A /* Pods_arquitetura_mvvm_arquitetura_mvvmUITests.framework */; };
@@ -119,7 +118,6 @@
 		6F9DBFF52273348E00AB79DF /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coordinator.swift; path = "arquitetura-mvvm/Coordinator/Coordinator.swift"; sourceTree = SOURCE_ROOT; };
 		6F9DBFF62273348F00AB79DF /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCoordinator.swift; path = "arquitetura-mvvm/Coordinator/MainCoordinator.swift"; sourceTree = SOURCE_ROOT; };
 		6F9DBFF72273348F00AB79DF /* Storyboarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Storyboarded.swift; path = "arquitetura-mvvm/Coordinator/Storyboarded.swift"; sourceTree = SOURCE_ROOT; };
-		6F9DBFFB2273386E00AB79DF /* PostDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostDetailCoordinator.swift; path = ../../../../PostDetailCoordinator.swift; sourceTree = "<group>"; };
 		6FEF7F4322772DA4008370FF /* MainCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorTest.swift; sourceTree = "<group>"; };
 		BEDE83171C385C0BBFC4A6A5 /* Pods-arquitetura-mvvmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arquitetura-mvvmTests.release.xcconfig"; path = "Target Support Files/Pods-arquitetura-mvvmTests/Pods-arquitetura-mvvmTests.release.xcconfig"; sourceTree = "<group>"; };
 		D0ED9EE9C274FFA90DA4BD79 /* Pods-arquitetura-mvvm-arquitetura-mvvmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arquitetura-mvvm-arquitetura-mvvmUITests.release.xcconfig"; path = "Target Support Files/Pods-arquitetura-mvvm-arquitetura-mvvmUITests/Pods-arquitetura-mvvm-arquitetura-mvvmUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -409,7 +407,6 @@
 				6F9DBFF52273348E00AB79DF /* Coordinator.swift */,
 				6F9DBFF62273348F00AB79DF /* MainCoordinator.swift */,
 				6F9DBFF72273348F00AB79DF /* Storyboarded.swift */,
-				6F9DBFFB2273386E00AB79DF /* PostDetailCoordinator.swift */,
 			);
 			name = Coordinator;
 			path = "New Group";
@@ -762,7 +759,6 @@
 				506003CC1FFFB60500B54AED /* PostRemoteService.swift in Sources */,
 				6F9DBFFA2273348F00AB79DF /* Storyboarded.swift in Sources */,
 				506003D81FFFF4A000B54AED /* PostTableViewCell.swift in Sources */,
-				6F9DBFFC2273386E00AB79DF /* PostDetailCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
