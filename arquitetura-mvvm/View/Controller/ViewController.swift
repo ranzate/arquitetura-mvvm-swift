@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import RxCocoa
-import RxDataSources
 import RxSwift
 
 class ViewController: BaseViewController {
@@ -33,5 +31,5 @@ class ViewController: BaseViewController {
             self?.coordinator.postDetail(viewModel: PostDetailViewModel(self!.viewModel.getPostIdSelected(indexPath.row)))
         }).disposed(by: disposeBag)
     }
-
+    
 }
