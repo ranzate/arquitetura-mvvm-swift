@@ -69,3 +69,10 @@ fastlane/test_output
 
 arquitetura-mvvm.xcworkspace/contents.xcworkspacedata
 arquitetura-mvvm.xcworkspace/xcuserdata/solutis.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+Pods/
+
+arquitetura-mvvm\.xcworkspace/
+
+Podfile\.lock
+
+arquitetura-mvvm\.xcodeproj/
