@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-class ViewController: BaseViewController {
+class ViewController: BaseViewController, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
