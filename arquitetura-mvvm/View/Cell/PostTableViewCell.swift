@@ -7,11 +7,8 @@
 //
 
 import UIKit
-import RxSwift
 
-class PostTableViewCell: UITableViewCell {
-
-    var disposeBag = DisposeBag()
+class PostTableViewCell: BaseTableViewCell {
 
     @IBOutlet weak var title: UILabel!
 

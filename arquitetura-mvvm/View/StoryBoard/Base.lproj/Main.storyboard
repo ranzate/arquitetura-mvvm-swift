@@ -38,8 +38,9 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="g19-5k-YgK" firstAttribute="leading" secondItem="EmX-kg-g4o" secondAttribute="leading" constant="8" id="907-jT-C3i"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="g19-5k-YgK" secondAttribute="trailing" constant="8" id="iJL-4H-sPg"/>
-                                                <constraint firstItem="g19-5k-YgK" firstAttribute="centerY" secondItem="EmX-kg-g4o" secondAttribute="centerY" id="oaW-oT-0j7"/>
+                                                <constraint firstItem="g19-5k-YgK" firstAttribute="top" secondItem="EmX-kg-g4o" secondAttribute="top" constant="8" id="D89-Vb-XDo"/>
+                                                <constraint firstAttribute="bottom" secondItem="g19-5k-YgK" secondAttribute="bottom" constant="8" id="GQK-oj-6LJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="g19-5k-YgK" secondAttribute="trailing" constant="8" id="kUM-rO-iap"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <accessibility key="accessibilityConfiguration" label="Cell">
@@ -50,6 +51,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="0wi-4H-7lK"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Xm3-j3-7aF"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
