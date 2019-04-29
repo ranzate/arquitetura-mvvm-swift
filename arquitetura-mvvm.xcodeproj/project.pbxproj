@@ -33,6 +33,9 @@
 		5094903D225963D100875A61 /* postError.json in Resources */ = {isa = PBXBuildFile; fileRef = 5094903C225963D100875A61 /* postError.json */; };
 		5094903E2259654300875A61 /* post.json in Resources */ = {isa = PBXBuildFile; fileRef = 5094903A225963B300875A61 /* post.json */; };
 		5094903F2259659500875A61 /* postError.json in Resources */ = {isa = PBXBuildFile; fileRef = 5094903C225963D100875A61 /* postError.json */; };
+		50949042225A26C700875A61 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50949041225A26C700875A61 /* Coordinator.swift */; };
+		50949044225A277000875A61 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50949043225A277000875A61 /* Storyboarded.swift */; };
+		50949046225A29B900875A61 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50949045225A29B900875A61 /* MainCoordinator.swift */; };
 		50958029200E19F300D991FF /* arquitetura_mvvmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50958028200E19F300D991FF /* arquitetura_mvvmUITests.swift */; };
 		50958031200E1A9500D991FF /* KIF+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50958030200E1A9500D991FF /* KIF+Swift.swift */; };
 		50D8B1392050231300F64B0B /* BaseRemoteServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8B1382050231300F64B0B /* BaseRemoteServiceProtocol.swift */; };
@@ -92,6 +95,9 @@
 		5094903822593D8400875A61 /* PostDetailViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewModelTest.swift; sourceTree = "<group>"; };
 		5094903A225963B300875A61 /* post.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = post.json; sourceTree = "<group>"; };
 		5094903C225963D100875A61 /* postError.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = postError.json; sourceTree = "<group>"; };
+		50949041225A26C700875A61 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		50949043225A277000875A61 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		50949045225A29B900875A61 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		50958026200E19F300D991FF /* arquitetura-mvvmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "arquitetura-mvvmUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50958028200E19F300D991FF /* arquitetura_mvvmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = arquitetura_mvvmUITests.swift; sourceTree = "<group>"; };
 		5095802A200E19F300D991FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -180,6 +186,7 @@
 		506003901FFFA17000B54AED /* arquitetura-mvvm */ = {
 			isa = PBXGroup;
 			children = (
+				50949040225A269500875A61 /* Coordinator */,
 				506003911FFFA17000B54AED /* AppDelegate.swift */,
 				506003D920000B3500B54AED /* Common */,
 				506003C21FFFA61900B54AED /* Model */,
@@ -335,6 +342,16 @@
 				5060039D1FFFA17000B54AED /* Info.plist */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		50949040225A269500875A61 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				50949041225A26C700875A61 /* Coordinator.swift */,
+				50949043225A277000875A61 /* Storyboarded.swift */,
+				50949045225A29B900875A61 /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		50958027200E19F300D991FF /* arquitetura-mvvmUITests */ = {
@@ -699,13 +716,16 @@
 				5081A15E20B8C01600627698 /* PostDetailViewController.swift in Sources */,
 				50D8B1392050231300F64B0B /* BaseRemoteServiceProtocol.swift in Sources */,
 				508301C220B461CB00EB4365 /* BaseViewModel.swift in Sources */,
+				50949044225A277000875A61 /* Storyboarded.swift in Sources */,
 				506003CA1FFFB57300B54AED /* Post.swift in Sources */,
 				500A2BD520501AA70073ED70 /* Error.swift in Sources */,
 				508301C420B47A2100EB4365 /* PostTableViewCellViewModel.swift in Sources */,
 				506003941FFFA17000B54AED /* ViewController.swift in Sources */,
 				5081A15C20B8BC2900627698 /* PostDetailViewModel.swift in Sources */,
+				50949042225A26C700875A61 /* Coordinator.swift in Sources */,
 				506003D21FFFB98200B54AED /* BaseRemoteService.swift in Sources */,
 				506003D51FFFF2B800B54AED /* BaseViewController.swift in Sources */,
+				50949046225A29B900875A61 /* MainCoordinator.swift in Sources */,
 				506003921FFFA17000B54AED /* AppDelegate.swift in Sources */,
 				500A2BCA2049FC040073ED70 /* ResponseError.swift in Sources */,
 				506003CC1FFFB60500B54AED /* PostRemoteService.swift in Sources */,

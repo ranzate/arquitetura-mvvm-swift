@@ -35,3 +35,10 @@ class PostViewModel : BaseViewModel {
         return PostTableViewCellViewModel(nil)
     }
 }
+
+extension PostViewModel : ViewModelFactory {
+    func viewModel() -> PostDetailViewModel {
+        return PostDetailViewModel(1)
+    }
+    
+}

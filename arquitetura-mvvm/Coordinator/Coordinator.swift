@@ -13,5 +13,10 @@ protocol Coordinator {
     var navigationController: UINavigationController { get set }
     
     func start()
-    func start(viewController: UIViewController)
+    func start<T: ViewModelFactory>(viewModel: T)
+}
+
+protocol ViewModelFactory {
+    associatedtype viewModelType = BaseViewModel
+    func viewModel() -> viewModelType
 }
