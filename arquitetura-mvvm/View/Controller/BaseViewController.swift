@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import RxSwift
 
-class BaseViewController: UIViewController {
+class BaseViewController: UIViewController, Storyboarded {
 
     var disposeBag = DisposeBag()
     

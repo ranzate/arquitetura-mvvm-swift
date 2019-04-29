@@ -12,6 +12,6 @@ protocol Coordinator {
     var childCoordinators: [Coordinator] { get set }
     var navigationController: UINavigationController { get set }
     
-    func start()
-    func start(viewController: UIViewController)
+    func start(animated: Bool)
+    func start(viewController: UIViewController, animated: Bool)
 }

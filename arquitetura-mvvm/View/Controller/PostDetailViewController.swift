@@ -16,6 +16,7 @@ class PostDetailViewController: BaseViewController {
     @IBOutlet weak var bodyLabel: UILabel!
     
     var viewModel: PostDetailViewModel!
+    var coordinator: PostDetailCoordinator!
     
     override func viewDidLoad() {
         super.viewDidLoad()
