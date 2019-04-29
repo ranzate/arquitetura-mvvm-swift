@@ -17,17 +17,21 @@ class PostViewModel : BaseViewModel {
 
     func getPosts() {
         service.getPosts()
-            .subscribe(onNext: { (posts) in
-                self.posts.accept(posts)
-            }, onError: { (error) in
-                self.error.accept(error.getMessage())
-            }).disposed(by: disposeBag)
+        .subscribe(onNext: { (posts) in
+            self.posts.accept(posts)
+        }, onError: { (error) in
+            self.error.accept(error.getMessage())
+        }).disposed(by: disposeBag)
     }
     
     func getPostIdSelected(_ index: Int) -> Int {
         return posts.value[index].id
     }
 
+    func getPostsCount() -> Int {
+        return posts.value.count
+    }
+    
     func getViewModelCell(_ index: Int) -> PostTableViewCellViewModel {
         if posts.value.count > index {
             return PostTableViewCellViewModel(posts.value[index])

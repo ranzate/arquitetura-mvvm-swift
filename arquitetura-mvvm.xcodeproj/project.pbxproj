@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41D92BB5225C3FDE0098E260 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D92BB4225C3FDE0098E260 /* BaseTableViewCell.swift */; };
 		500A2BCA2049FC040073ED70 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500A2BC92049FC040073ED70 /* ResponseError.swift */; };
 		500A2BD520501AA70073ED70 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500A2BD420501AA60073ED70 /* Error.swift */; };
 		506003921FFFA17000B54AED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506003911FFFA17000B54AED /* AppDelegate.swift */; };
@@ -44,6 +45,11 @@
 		50DEADCC2258E6AD008AE829 /* postsError.json in Resources */ = {isa = PBXBuildFile; fileRef = 50DEADCB2258E6AD008AE829 /* postsError.json */; };
 		50DEADCE22591C20008AE829 /* PostViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DEADCD22591C20008AE829 /* PostViewModelTest.swift */; };
 		5A5FFF18D68CBCF3EB6E88B2 /* Pods_arquitetura_mvvm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F825570065CDFF8229EDD6D /* Pods_arquitetura_mvvm.framework */; };
+		6F9DBFF82273348F00AB79DF /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9DBFF52273348E00AB79DF /* Coordinator.swift */; };
+		6F9DBFF92273348F00AB79DF /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9DBFF62273348F00AB79DF /* MainCoordinator.swift */; };
+		6F9DBFFA2273348F00AB79DF /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9DBFF72273348F00AB79DF /* Storyboarded.swift */; };
+		6F9DBFFC2273386E00AB79DF /* PostDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9DBFFB2273386E00AB79DF /* PostDetailCoordinator.swift */; };
+		6FEF7F4422772DA4008370FF /* MainCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEF7F4322772DA4008370FF /* MainCoordinatorTest.swift */; };
 		8285E7A849504DEC1FB5C789 /* Pods_arquitetura_mvvmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DD699510C7F7F5A0370F53A /* Pods_arquitetura_mvvmTests.framework */; };
 		E97180342713D78FBCA8AF8F /* Pods_arquitetura_mvvm_arquitetura_mvvmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32001A55D78C03944EDAE77A /* Pods_arquitetura_mvvm_arquitetura_mvvmUITests.framework */; };
 /* End PBXBuildFile section */
@@ -68,6 +74,7 @@
 /* Begin PBXFileReference section */
 		25089BDA7D8091E5C674F0A0 /* Pods-arquitetura-mvvm-arquitetura-mvvmUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arquitetura-mvvm-arquitetura-mvvmUITests.debug.xcconfig"; path = "Target Support Files/Pods-arquitetura-mvvm-arquitetura-mvvmUITests/Pods-arquitetura-mvvm-arquitetura-mvvmUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		32001A55D78C03944EDAE77A /* Pods_arquitetura_mvvm_arquitetura_mvvmUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_arquitetura_mvvm_arquitetura_mvvmUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		41D92BB4225C3FDE0098E260 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		477F30B8A09910C9E2581544 /* Pods-arquitetura-mvvm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arquitetura-mvvm.release.xcconfig"; path = "Target Support Files/Pods-arquitetura-mvvm/Pods-arquitetura-mvvm.release.xcconfig"; sourceTree = "<group>"; };
 		500A2BC92049FC040073ED70 /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
 		500A2BD420501AA60073ED70 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -109,6 +116,11 @@
 		50DEADCD22591C20008AE829 /* PostViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModelTest.swift; sourceTree = "<group>"; };
 		5DD699510C7F7F5A0370F53A /* Pods_arquitetura_mvvmTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_arquitetura_mvvmTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F825570065CDFF8229EDD6D /* Pods_arquitetura_mvvm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_arquitetura_mvvm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F9DBFF52273348E00AB79DF /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coordinator.swift; path = "arquitetura-mvvm/Coordinator/Coordinator.swift"; sourceTree = SOURCE_ROOT; };
+		6F9DBFF62273348F00AB79DF /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCoordinator.swift; path = "arquitetura-mvvm/Coordinator/MainCoordinator.swift"; sourceTree = SOURCE_ROOT; };
+		6F9DBFF72273348F00AB79DF /* Storyboarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Storyboarded.swift; path = "arquitetura-mvvm/Coordinator/Storyboarded.swift"; sourceTree = SOURCE_ROOT; };
+		6F9DBFFB2273386E00AB79DF /* PostDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostDetailCoordinator.swift; path = ../../../../PostDetailCoordinator.swift; sourceTree = "<group>"; };
+		6FEF7F4322772DA4008370FF /* MainCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorTest.swift; sourceTree = "<group>"; };
 		BEDE83171C385C0BBFC4A6A5 /* Pods-arquitetura-mvvmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arquitetura-mvvmTests.release.xcconfig"; path = "Target Support Files/Pods-arquitetura-mvvmTests/Pods-arquitetura-mvvmTests.release.xcconfig"; sourceTree = "<group>"; };
 		D0ED9EE9C274FFA90DA4BD79 /* Pods-arquitetura-mvvm-arquitetura-mvvmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arquitetura-mvvm-arquitetura-mvvmUITests.release.xcconfig"; path = "Target Support Files/Pods-arquitetura-mvvm-arquitetura-mvvmUITests/Pods-arquitetura-mvvm-arquitetura-mvvmUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D7216170248E246881AEEA11 /* Pods-arquitetura-mvvmTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arquitetura-mvvmTests.debug.xcconfig"; path = "Target Support Files/Pods-arquitetura-mvvmTests/Pods-arquitetura-mvvmTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -189,6 +201,7 @@
 				50949040225A269500875A61 /* Coordinator */,
 				506003911FFFA17000B54AED /* AppDelegate.swift */,
 				506003D920000B3500B54AED /* Common */,
+				6F9DBFF42273346E00AB79DF /* Coordinator */,
 				506003C21FFFA61900B54AED /* Model */,
 				506003C01FFFA5FA00B54AED /* View */,
 				506003C11FFFA60B00B54AED /* ViewModel */,
@@ -199,6 +212,7 @@
 		506003A51FFFA17000B54AED /* arquitetura-mvvmTests */ = {
 			isa = PBXGroup;
 			children = (
+				6FEF7F4222772D6B008370FF /* Coordinator */,
 				506003A61FFFA17000B54AED /* arquitetura_mvvmTests.swift */,
 				506003A81FFFA17000B54AED /* Info.plist */,
 				50DEADC62258DBBF008AE829 /* BaseTest.swift */,
@@ -305,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				506003D71FFFF4A000B54AED /* PostTableViewCell.swift */,
+				41D92BB4225C3FDE0098E260 /* BaseTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -388,6 +403,26 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		6F9DBFF42273346E00AB79DF /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				6F9DBFF52273348E00AB79DF /* Coordinator.swift */,
+				6F9DBFF62273348F00AB79DF /* MainCoordinator.swift */,
+				6F9DBFF72273348F00AB79DF /* Storyboarded.swift */,
+				6F9DBFFB2273386E00AB79DF /* PostDetailCoordinator.swift */,
+			);
+			name = Coordinator;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		6FEF7F4222772D6B008370FF /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				6FEF7F4322772DA4008370FF /* MainCoordinatorTest.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -458,20 +493,23 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Solutis;
 				TargetAttributes = {
 					5060038D1FFFA17000B54AED = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					506003A11FFFA17000B54AED = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 5060038D1FFFA17000B54AED;
 					};
 					50958025200E19F300D991FF = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 5060038D1FFFA17000B54AED;
 					};
@@ -543,9 +581,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-arquitetura-mvvm-arquitetura-mvvmUITests/Pods-arquitetura-mvvm-arquitetura-mvvmUITests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/KIF/KIF.framework",
 			);
@@ -554,9 +590,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KIF.framework",
 			);
@@ -575,9 +609,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-arquitetura-mvvm/Pods-arquitetura-mvvm-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -585,9 +617,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -719,17 +749,20 @@
 				50949044225A277000875A61 /* Storyboarded.swift in Sources */,
 				506003CA1FFFB57300B54AED /* Post.swift in Sources */,
 				500A2BD520501AA70073ED70 /* Error.swift in Sources */,
+				6F9DBFF92273348F00AB79DF /* MainCoordinator.swift in Sources */,
 				508301C420B47A2100EB4365 /* PostTableViewCellViewModel.swift in Sources */,
 				506003941FFFA17000B54AED /* ViewController.swift in Sources */,
 				5081A15C20B8BC2900627698 /* PostDetailViewModel.swift in Sources */,
 				50949042225A26C700875A61 /* Coordinator.swift in Sources */,
 				506003D21FFFB98200B54AED /* BaseRemoteService.swift in Sources */,
 				506003D51FFFF2B800B54AED /* BaseViewController.swift in Sources */,
-				50949046225A29B900875A61 /* MainCoordinator.swift in Sources */,
+				41D92BB5225C3FDE0098E260 /* BaseTableViewCell.swift in Sources */,
 				506003921FFFA17000B54AED /* AppDelegate.swift in Sources */,
 				500A2BCA2049FC040073ED70 /* ResponseError.swift in Sources */,
 				506003CC1FFFB60500B54AED /* PostRemoteService.swift in Sources */,
+				6F9DBFFA2273348F00AB79DF /* Storyboarded.swift in Sources */,
 				506003D81FFFF4A000B54AED /* PostTableViewCell.swift in Sources */,
+				6F9DBFFC2273386E00AB79DF /* PostDetailCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -740,6 +773,7 @@
 				506003A71FFFA17000B54AED /* arquitetura_mvvmTests.swift in Sources */,
 				5094903922593D8400875A61 /* PostDetailViewModelTest.swift in Sources */,
 				50DEADC72258DBBF008AE829 /* BaseTest.swift in Sources */,
+				6FEF7F4422772DA4008370FF /* MainCoordinatorTest.swift in Sources */,
 				50DEADCE22591C20008AE829 /* PostViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -802,6 +836,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -809,6 +844,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -842,6 +878,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -859,6 +896,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -866,6 +904,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -891,6 +930,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -907,7 +947,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.solutis.arquitetura-mvvm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -924,7 +964,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.solutis.arquitetura-mvvm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -940,7 +980,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.solutis.arquitetura-mvvmTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/arquitetura-mvvm.app/arquitetura-mvvm";
 			};
@@ -957,7 +997,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.solutis.arquitetura-mvvmTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/arquitetura-mvvm.app/arquitetura-mvvm";
 			};
@@ -973,7 +1013,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.solutis.arquitetura-mvvmUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/arquitetura-mvvm.app/arquitetura-mvvm";
 			};
@@ -989,7 +1029,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.solutis.arquitetura-mvvmUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/arquitetura-mvvm.app/arquitetura-mvvm";
 			};

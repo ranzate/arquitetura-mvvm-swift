@@ -14,6 +14,7 @@ protocol Coordinator {
     
     func start()
     func start<T: ViewModelFactory>(viewModel: T)
+    func start(viewController: UIViewController, animated: Bool)
 }
 
 protocol ViewModelFactory {
