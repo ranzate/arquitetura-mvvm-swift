@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostDetailViewController: BaseViewController, Storyboarded {
+class PostDetailViewController: BaseViewController {
 
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var userIdLabel: UILabel!

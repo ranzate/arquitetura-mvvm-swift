@@ -9,6 +9,11 @@
 import UIKit
 
 class MainCoordinator: Coordinator {
+    func start(viewController: UIViewController, animated: Bool) {
+        navigationController.pushViewController(viewController, animated: animated)
+    }
+    
+    
     var childCoordinators: [Coordinator] = []
     
     var navigationController: UINavigationController
@@ -21,11 +26,6 @@ class MainCoordinator: Coordinator {
         let viewController = ViewController.instantiate("Main")
         viewController.coordinator = MainCoordinator(navigationController: navigationController)
         navigationController.pushViewController(viewController, animated: animated)
-    }
-    
-    func start<T>(viewModel: T) where T : ViewModelFactory {
-        let view = PostDetailViewController.instantiate("Main")
-        view.viewModel = viewModel.viewModel() as? PostDetailViewModel
     }
 
     func postDetail(viewModel: PostDetailViewModel, animated: Bool = true) {
